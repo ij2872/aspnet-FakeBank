@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeNetBank", "FakeNetBank\FakeNetBank.csproj", "{BBD9BDF6-338E-4114-8E72-3112374FFF9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeNetBank.Tests", "FakeNetBank.Tests\FakeNetBank.Tests.csproj", "{DA4F4285-B7D8-42BE-B20F-D0C65DD2BDF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBD9BDF6-338E-4114-8E72-3112374FFF9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD9BDF6-338E-4114-8E72-3112374FFF9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD9BDF6-338E-4114-8E72-3112374FFF9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD9BDF6-338E-4114-8E72-3112374FFF9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA4F4285-B7D8-42BE-B20F-D0C65DD2BDF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA4F4285-B7D8-42BE-B20F-D0C65DD2BDF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA4F4285-B7D8-42BE-B20F-D0C65DD2BDF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA4F4285-B7D8-42BE-B20F-D0C65DD2BDF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
