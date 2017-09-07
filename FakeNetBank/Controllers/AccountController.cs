@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FakeNetBank.Models;
 
+
 namespace FakeNetBank.Controllers
 {
     [Authorize]
@@ -155,6 +156,10 @@ namespace FakeNetBank.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                    // Add user to claim. This allows us to get name without having to call database every time.
+                    UserManager.AddClaim(user.Id, new Claim(ClaimTypes.GivenName, model.FirstName));
+
                     var db = new ApplicationDbContext();
 
                     // @TODO Store 123456 in config with diff num

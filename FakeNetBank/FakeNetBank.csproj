@@ -274,6 +274,7 @@
     <Content Include="Views\UserAccount\Index.cshtml" />
     <Content Include="Views\CheckingAccount\Details.cshtml" />
     <Content Include="Views\Transaction\Deposit.cshtml" />
+    <Content Include="Views\Transaction\Withdraw.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
