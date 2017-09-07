@@ -1,10 +1,12 @@
-﻿@{
+﻿
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
     <h1>Fake Valley Community Bank</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p class="lead"></p>
 </div>
 
 <div class="row home-buttons">
@@ -18,8 +20,9 @@
         <a class="btn btn-primary btn-block">Print Statement</a>
     </div>
     <div class="col-md-6">
-        <a class="btn btn-primary btn-block">Quick Cash $100</a>
+        <a class="btn btn-success btn-block quickCash-btn">Quick Cash $100</a>
     </div>
+   
     <div class="col-md-6">
         <a class="btn btn-primary btn-block">Transfer Funds</a>
     </div>
@@ -29,3 +32,40 @@
     
 
 </div>
+
+
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            
+
+
+
+            //Quick Cash $100 Action
+            $('.quickCash-btn').on("click", function () {
+
+                // set up transaction
+                var transaction = {"customerId": @ViewBag.customerId , "Amount": 100}
+                //AJAX Request
+                $.ajax({
+                    url: "/Transaction/Deposit/" ,
+                    method: "POST",
+                    data: transaction,
+                    success: function(){
+                        console.log("Deposited to customerID: " + @ViewBag.customerId);
+                        toastr.success("Successfully Added $100.00 to Checkings Account! " );
+                    },
+                    error: function(){
+                        toastr.error("Something went wrong with Quick Cash");
+                    }
+                    
+                });
+            });
+
+
+        });
+
+
+    </script>
+}
