@@ -1,0 +1,52 @@
+﻿@model FakeNetBank.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h4>Checkings Account</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AccountNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Balance)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Balance)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+<div class="row home-buttons">
+    <div class="col-md-4 ">
+        <a class="btn btn-primary btn-block">Withdraw</a>
+    </div>
+    <div class="col-md-4">
+        <a href="@Url.Action("Deposit", "Transaction", new { customerId =  Model.Id } )" class="btn btn-primary btn-block">Deposit</a>
+    </div>
+
+
+</div>

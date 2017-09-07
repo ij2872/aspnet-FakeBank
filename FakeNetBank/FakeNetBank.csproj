@@ -168,14 +168,51 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CheckingAccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709051851263_customerInitial.cs" />
+    <Compile Include="Migrations\201709051851263_customerInitial.Designer.cs">
+      <DependentUpon>201709051851263_customerInitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709061915539_AddCustomerTable.cs" />
+    <Compile Include="Migrations\201709061915539_AddCustomerTable.Designer.cs">
+      <DependentUpon>201709061915539_AddCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709061916498_AddCustomerToCustomersTable.cs" />
+    <Compile Include="Migrations\201709061916498_AddCustomerToCustomersTable.Designer.cs">
+      <DependentUpon>201709061916498_AddCustomerToCustomersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709061923466_EditCustomersTable.cs" />
+    <Compile Include="Migrations\201709061923466_EditCustomersTable.Designer.cs">
+      <DependentUpon>201709061923466_EditCustomersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709062038283_UpdateAccountNumberToVarcharInCustomersTable.cs" />
+    <Compile Include="Migrations\201709062038283_UpdateAccountNumberToVarcharInCustomersTable.Designer.cs">
+      <DependentUpon>201709062038283_UpdateAccountNumberToVarcharInCustomersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709062113010_AddedUsernameToUserAccountTable.cs" />
+    <Compile Include="Migrations\201709062113010_AddedUsernameToUserAccountTable.Designer.cs">
+      <DependentUpon>201709062113010_AddedUsernameToUserAccountTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709062319537_AddedTransactionInitTable.cs" />
+    <Compile Include="Migrations\201709062319537_AddedTransactionInitTable.Designer.cs">
+      <DependentUpon>201709062319537_AddedTransactionInitTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709070127304_UpdatedColumnNameInTransactionsTable.cs" />
+    <Compile Include="Migrations\201709070127304_UpdatedColumnNameInTransactionsTable.Designer.cs">
+      <DependentUpon>201709070127304_UpdatedColumnNameInTransactionsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -234,6 +271,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\UserAccount\Index.cshtml" />
+    <Content Include="Views\CheckingAccount\Details.cshtml" />
+    <Content Include="Views\Transaction\Deposit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +285,32 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709051851263_customerInitial.resx">
+      <DependentUpon>201709051851263_customerInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709061915539_AddCustomerTable.resx">
+      <DependentUpon>201709061915539_AddCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709061916498_AddCustomerToCustomersTable.resx">
+      <DependentUpon>201709061916498_AddCustomerToCustomersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709061923466_EditCustomersTable.resx">
+      <DependentUpon>201709061923466_EditCustomersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709062038283_UpdateAccountNumberToVarcharInCustomersTable.resx">
+      <DependentUpon>201709062038283_UpdateAccountNumberToVarcharInCustomersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709062113010_AddedUsernameToUserAccountTable.resx">
+      <DependentUpon>201709062113010_AddedUsernameToUserAccountTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709062319537_AddedTransactionInitTable.resx">
+      <DependentUpon>201709062319537_AddedTransactionInitTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709070127304_UpdatedColumnNameInTransactionsTable.resx">
+      <DependentUpon>201709070127304_UpdatedColumnNameInTransactionsTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

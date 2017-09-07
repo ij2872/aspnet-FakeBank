@@ -155,6 +155,15 @@ namespace FakeNetBank.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var db = new ApplicationDbContext();
+
+                    // @TODO Store 123456 in config with diff num
+                    var accountNumber = (123459 + db.Customers.Count()).ToString().PadLeft(10, '0');
+                    var customer = new Customer { FirstName = model.FirstName, LastName = model.LastName,
+                                                  AccountNumber = accountNumber, Balance = 0, ApplicationUserId = user.Id};
+                    db.Customers.Add(customer);
+                    db.SaveChanges();
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
