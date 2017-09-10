@@ -41,6 +41,14 @@ namespace FakeNetBank.Controllers
             return View(customer);
         }
 
+        public ActionResult jsonDetails()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var customer = _context.Customers.SingleOrDefault(c => c.ApplicationUserId == userId);
+            return Json(new { balance = customer.Balance });
+
+        }
 
         // Get: CheckingAccount/Deposit
         public ActionResult Deposit(int id)

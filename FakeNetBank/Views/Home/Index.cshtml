@@ -4,10 +4,22 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Fake Valley Community Bank</h1>
-    <p class="lead"></p>
+<div class="row">
+    <div class="col-md-8">
+        <div class="jumbotron">
+            <h1>Fake Valley Community Bank</h1>
+            <p class="lead"></p>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="well"><h4>Checking Account</h4> Balance: <span class="ca-balance"></span></div>
+    </div>
+
 </div>
+
+
+
 
 <div class="row home-buttons">
     <div class="col-md-6">
@@ -17,17 +29,17 @@
         <a href="@Url.Action("Deposit", "Transaction", new { customerId = ViewBag.customerId})" class="btn btn-primary btn-block">Deposit</a>
     </div>
     <div class="col-md-6">
-        <a class="btn btn-primary btn-block">Print Statement</a>
+        <a class="btn btn-primary disabled btn-block">Print Statement</a>
     </div>
     <div class="col-md-6">
         <a class="btn btn-success btn-block quickCash-btn">Quick Cash $100</a>
     </div>
    
     <div class="col-md-6">
-        <a class="btn btn-primary btn-block">Transfer Funds</a>
+        <a class="btn btn-primary disabled btn-block">Transfer Funds</a>
     </div>
     <div class="col-md-6">
-        <a href="@Url.Action("Details", "CheckingAccount")" class="btn btn-primary btn-block">Balance Inquery</a>
+        <a href="@Url.Action("Details", "CheckingAccount")" class="btn btn-primary disabled btn-block">Balance Inquery</a>
     </div>
     
 
@@ -36,17 +48,31 @@
 
 @section scripts{
     <script>
+        var renderBalance = function(){
+            $.ajax({
+                url: "/api/customers/" + @ViewBag.customerId ,
+                dataType: "json",
+                success: function(data){
+                    $('.ca-balance').text("$" + data);
+                },
+                error: function(){
+                    toastr.error("Something went wrong while getting Balance from server");
+                }
+            });
+        }
 
         $(document).ready(function () {
-            
 
-
+            // Get balance, Append to class{ca-balance}
+            $('.ca-balance').text("$00.00");
+            renderBalance();
 
             //Quick Cash $100 Action
             $('.quickCash-btn').on("click", function () {
 
                 // set up transaction
-                var transaction = {"customerId": @ViewBag.customerId , "Amount": 100}
+                var transaction = {"customerId": @ViewBag.customerId , "Amount": 100};
+
                 //AJAX Request
                 $.ajax({
                     url: "/Transaction/Deposit/" ,
@@ -55,11 +81,12 @@
                     success: function(){
                         console.log("Deposited to customerID: " + @ViewBag.customerId);
                         toastr.success("Successfully Added $100.00 to Checkings Account! " );
+                        renderBalance();
                     },
                     error: function(){
                         toastr.error("Something went wrong with Quick Cash");
                     }
-                    
+
                 });
             });
 
