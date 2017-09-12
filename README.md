@@ -1,5 +1,5 @@
-# aspnet-FakeBank
-A mock bank website built on the **C# ASP.NET Mvc** framework with a Code-First Database approach. Users have the ability to create an account in order to withdraw, deposit, and check balance of their **FakeBank Valley Bank** Account 
+# Fake Valley Bank
+A mock bank website built on the **C# ASP.NET Mvc** framework with a Code-First Database approach. Users have the ability to create an account in order to withdraw, deposit, and check balance of their **Fake Valley Bank** Account 
 
 
 ## Models
@@ -7,9 +7,9 @@ A mock bank website built on the **C# ASP.NET Mvc** framework with a Code-First 
 ### Customer Model
 
 The bases of the application is the [Customer](https://github.com/ij2872/aspnet-FakeBank/blob/master/FakeNetBank/Models/Customer.cs) class.
-On User Registration,
 
-#### SQL Table
+
+##### SQL Table
 
 | Id |  AccountNumber  |  FirstName  |  LastName  |  Balance  |  ApplicationUserId  |
 |-|-|-|-|-|-|
@@ -34,15 +34,35 @@ public class Customer
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
 ```
-Creates the following table
 
+### Transaction Model
 
+Withdraws and Deposits from a Customer are recorded using the [Transaction](https://github.com/ij2872/aspnet-FakeBank/blob/master/FakeNetBank/Models/Transaction.cs) Controller.
 
+##### SQL Table
 
+| Id |  Amount  |  CustomerId  | 
+|-|-|-|
+
+```csharp
+    public class Transaction
+    {
+        public int Id { get; set; }
+
+        [Required]
+        [DataType(DataType.Currency)]
+        public decimal Amount { get; set; }
+
+        [Required]
+        public int customerId { get; set; }
+
+        public virtual Customer Customer { get; set; }
+    }
+```
 
 ### Creating and Registering a user 
 
-[link to code](https://github.com/ij2872/aspnet-FakeBank/blob/5affebd5486d2c0001ef66c1d4635a24cc6f1cb3/FakeNetBank/Controllers/AccountController.cs#L161-170)
+[link to code](https://github.com/ij2872/aspnet-FakeBank/blob/5affebd5486d2c0001ef66c1d4635a24cc6f1cb3/FakeNetBank/Controllers/AccountController.cs#L161-L170)
 ```csharp
 
         UserManager.AddClaim(user.Id, new Claim(ClaimTypes.GivenName, model.FirstName));
@@ -59,9 +79,22 @@ Account numbers are currently based of adding 123459 to the amount of customers 
 While this method works right now, it may lead to bugs in the future if (and when) users are deleted from the database. Therefore, a new accountNumber generating method will be implemented at a later date.
 
 
-## Progression 9-11-17
+## Progressions 
+#### 9-11-17
+
 
 <img src="imgs/AppProgress1.0.JPG" >
 
-## Notes
-At this moment of progression, Users are able to withdraw and deposit. The homepage also allows for the use of Quick cash, an AJax request to the [Transaction Controller](https://github.com/ij2872/aspnet-FakeBank/blob/master/FakeNetBank/Controllers/TransactionController.cs)
+
+
+
+#### Notes
+At this moment, Users are able to withdraw and deposit. The homepage also allows for the use of Quick cash, with an AJax request to the [Transaction Controller](https://github.com/ij2872/aspnet-FakeBank/blob/master/FakeNetBank/Controllers/TransactionController.cs). Balance is viewable and obtained with an Ajax request, on load, to the [api/Customers](https://github.com/ij2872/aspnet-FakeBank/blob/master/FakeNetBank/Controllers/Api/CustomersController.cs) Controller.
+
+---
+
+
+
+
+## Author
+   Ivan Jaimes
