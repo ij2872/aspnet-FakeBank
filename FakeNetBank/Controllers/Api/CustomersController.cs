@@ -33,15 +33,7 @@ namespace FakeNetBank.Controllers.Api
             return Ok(customer.Balance.ToString());
         }
          
-        //// GET: api/balance/
-        //[Route("api/balance")]
-        //[HttpGet]
-        //public IHttpActionResult GetBalance(int id)
-        //{
-        //    var customer = _context.Customers.SingleOrDefault(c => c.Id == 4);
 
-        //    return Ok(customer);
-        //}
     }
 }
 //        // PUT: api/Customers/5
