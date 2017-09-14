@@ -40,6 +40,7 @@
     </div>
 </div>
 
+
 <div class="row home-buttons">
     <div class="col-md-4 col-md-offset-2">
         <a href="@Url.Action("Withdraw", "Transaction", new { customerId = Model.Id })" class="btn btn-primary btn-block">Withdraw</a>
@@ -47,10 +48,32 @@
     <div class="col-md-4">
         <a href="@Url.Action("Deposit", "Transaction", new { customerId =  Model.Id } )" class="btn btn-primary btn-block">Deposit</a>
     </div>
-
-
 </div>
+
+<table class="table table-bordered table-hover" id="transactions">
+    <thead>
+        <tr>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+
+</table>
 
 <div>
     @Html.ActionLink("Back to Homepage", "Index", "Home")
 </div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#transactions').DataTable({
+                ajax: {
+                    url: "/api/"
+                }
+            });
+        });
+    </script>    
+}
