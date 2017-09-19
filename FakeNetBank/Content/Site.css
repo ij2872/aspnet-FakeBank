@@ -4,10 +4,11 @@
     background-color: black;
     background: url('Images/city3.jpg') no-repeat center fixed;
     background-size: cover;
-    -webkit-background-size: cover;
+    /*-webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
     background-size: cover;
+    color: white;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -36,4 +37,32 @@ textarea {
 
 .home-buttons div a{
     margin-bottom: 10px;
+}
+
+
+
+/*HOMEPAGE*/
+
+.home--jumbotron{
+    background-color: transparent;
+}
+/*.home--jumbotron-title{
+    
+
+}*/
+
+.home--balance-container{
+
+    color: white;
+   
+}
+.home--balance-container .well{
+    margin-top: 50px;
+    background-color: transparent;
+    border: none;
+    font-size: 2em;
+}
+
+.ca-balance{
+    color: forestgreen;
 }
