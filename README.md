@@ -1,6 +1,8 @@
 # Fake Valley Bank
 A mock bank website built on the **C# ASP.NET Mvc** framework with a Code-First Database approach. Users have the ability to create an account in order to withdraw, deposit, and check balance of their **Fake Valley Bank** Account 
 
+<img src="imgs/img 1.JPG" > 
+
 
 ## Models
 
@@ -80,6 +82,15 @@ While this method works right now, it may lead to bugs in the future if (and whe
 
 
 ## Progressions 
+
+#### 9-19-17
+
+<img src="imgs/img 1.JPG" > 
+
+<img src="imgs/img 2.JPG" >
+
+Account page now shows table of user transactions using JQuery.DataTable.
+
 #### 9-11-17
 
 
