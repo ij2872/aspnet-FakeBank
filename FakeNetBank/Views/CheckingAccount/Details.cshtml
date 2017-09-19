@@ -54,6 +54,7 @@
     <thead>
         <tr>
             <th>Amount</th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
@@ -71,25 +72,33 @@
 
 
         $(document).ready(function () {
-            table = $('#transactions').DataTable({
+            var table = $('#transactions').DataTable({
                 "scrollY": "200px",
                 "scollCollapse": true,
                 "bFilter": false,
                 paging: false,
+                order: [[1, "desc"]],
                 ajax: {
                     url: "/api/transactions/" + @Model.Id,
                     dataSrc: "",
-                    
                 },
                 columns: [
                     {
-                        data: "Amount",
-                        render: function (data, type, transaction){
-                            return transaction < 0 ? "<span class='text-danger'>- $" + Math.abs(transaction) + "</span>" : "<span class='text-success'>+ $" + transaction + "</span>";
+                        data: "balance",
+                        render: function (data, type, row){
+                            return data < 0 ? "<span class='text-danger'>- $" + Math.abs(data) + "</span>" : "<span class='text-success'>+ $" + data + "</span>";
+                        }
+                    },
+                    {
+                        data: "createdOn",
+                        render: function(data, type, transaction){
+                            return data;
                         }
                     }
                 ]
             });
+
+            console.log(table);
         });
     </script>    
 }

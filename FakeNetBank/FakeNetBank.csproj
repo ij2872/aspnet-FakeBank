@@ -222,12 +222,17 @@
     <Compile Include="Migrations\201709070127304_UpdatedColumnNameInTransactionsTable.Designer.cs">
       <DependentUpon>201709070127304_UpdatedColumnNameInTransactionsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709190152411_AddCreatedOnToTransactionsTable.cs" />
+    <Compile Include="Migrations\201709190152411_AddCreatedOnToTransactionsTable.Designer.cs">
+      <DependentUpon>201709190152411_AddCreatedOnToTransactionsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionHistoryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -572,6 +577,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709070127304_UpdatedColumnNameInTransactionsTable.resx">
       <DependentUpon>201709070127304_UpdatedColumnNameInTransactionsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709190152411_AddCreatedOnToTransactionsTable.resx">
+      <DependentUpon>201709190152411_AddCreatedOnToTransactionsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

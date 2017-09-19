@@ -16,11 +16,6 @@ namespace FakeNetBank.Controllers.Api
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        //// GET: api/Transactions
-        //public IQueryable<Transaction> GetTransactions()
-        //{
-        //    return db.Transactions;
-        //}
 
         // GET: api/Transactions/5
         [ResponseType(typeof(Transaction))]
@@ -31,12 +26,15 @@ namespace FakeNetBank.Controllers.Api
             {
                 return NotFound();
             }
-            var result = new List<decimal>();
-            foreach(var t in transaction)
-            {
-                result.Add(t.Amount);
-            }
+            var result = new List<TransactionHistoryModel>();
 
+            foreach (var t in transaction)
+            {
+                DateTime dateCreated =  t.CreatedOn ?? DateTime.MaxValue;
+                result.Add(new TransactionHistoryModel{ Balance = t.Amount, createdOn = dateCreated});
+               
+            }
+            // return json objex
             return Ok(result);
         }
 

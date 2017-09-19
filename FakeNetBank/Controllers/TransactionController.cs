@@ -38,6 +38,9 @@ namespace FakeNetBank.Controllers
                     return View();
                 }
 
+                // Add time withdrawn to transactions CreatedOn Column
+                DateTime today = DateTime.Now;
+                transaction.CreatedOn = new DateTime(today.Year, today.Month, today.Day, today.Hour, today.Minute, today.Second);
 
                 customer.Balance += Math.Abs(transaction.Amount);
 
@@ -69,6 +72,10 @@ namespace FakeNetBank.Controllers
                 var customer = _context.Customers.SingleOrDefault(c => c.Id == transaction.customerId);
                 transaction.Amount = -Math.Abs(transaction.Amount);
                 customer.Balance += transaction.Amount;
+
+                // Add time withdrawn to transactions CreatedOn Column
+                DateTime today = DateTime.Now;
+                transaction.CreatedOn = new DateTime(today.Year, today.Month, today.Day, today.Hour, today.Minute, today.Second);
 
                 _context.Transactions.Add(transaction);
                 _context.SaveChanges();
