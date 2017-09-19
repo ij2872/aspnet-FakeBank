@@ -23,7 +23,7 @@
 
 <div class="row home-buttons">
     <div class="col-md-6">
-        <a href="@Url.Action("Withdraw", "Transaction", new { customerId = ViewBag.customerId})" class="btn btn-primary btn-block">Withdraw</a>
+        <a href="@Url.Action("Withdraw", "Transaction", new { customerId = ViewBag.customerId})" class="btn btn-danger btn-block">Withdraw</a>
     </div>
     <div class="col-md-6">
         <a href="@Url.Action("Deposit", "Transaction", new { customerId = ViewBag.customerId})" class="btn btn-primary btn-block">Deposit</a>
@@ -34,7 +34,6 @@
     <div class="col-md-6">
         <a class="btn btn-success btn-block quickCash-btn">Quick Cash $100</a>
     </div>
-   
     <div class="col-md-6">
         <a class="btn btn-primary disabled btn-block">Transfer Funds</a>
     </div>

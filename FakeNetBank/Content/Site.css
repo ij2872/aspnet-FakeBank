@@ -2,7 +2,7 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: black;
-    background: url('Images/city3.jpg') no-repeat center fixed;
+    background: url('Images/city4.jpg') no-repeat center fixed;
     background-size: cover;
     /*-webkit-background-size: cover;
     -moz-background-size: cover;
@@ -31,13 +31,7 @@ textarea {
     max-width: 280px;
 }
 
-.home-button{
-    margin-bottom: 200px;
-}
 
-.home-buttons div a{
-    margin-bottom: 10px;
-}
 
 
 
@@ -65,4 +59,36 @@ textarea {
 
 .ca-balance{
     color: forestgreen;
+}
+
+/*Buttons*/
+
+
+.home-buttons{
+    margin-bottom: 250px;
+}
+
+.home-buttons div a{
+    margin-bottom: 10px;
+}
+.quickCash-btn{
+    background-color: #2e6644;
+    border-color: #2e6644;
+}
+
+
+
+/*CHECKINGACCOUNTPAGE*/
+.account--table-container{
+    background-color: whitesmoke;
+    padding: 10px;
+}
+.account--table{
+    background-color: white;
+    /*border: solid black 5px;*/
+    color: black;
+}
+
+#transactions_info{
+    color: black;
 }
