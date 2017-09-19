@@ -41,7 +41,6 @@ namespace FakeNetBank.Controllers
 
                 customer.Balance += Math.Abs(transaction.Amount);
 
-                
 
                 // Add Deposit to Transactions Table Log
                 _context.Transactions.Add(transaction);
@@ -57,7 +56,6 @@ namespace FakeNetBank.Controllers
         // GET: Transaction/Withdraw
         public ActionResult Withdraw(int customerId)
         {
-
             return View();
         }
 
@@ -65,14 +63,13 @@ namespace FakeNetBank.Controllers
         [HttpPost]
         public ActionResult Withdraw(Transaction transaction)
         {
-            
-
 
             if (ModelState.IsValid)
             {
                 var customer = _context.Customers.SingleOrDefault(c => c.Id == transaction.customerId);
+                transaction.Amount = -Math.Abs(transaction.Amount);
+                customer.Balance += transaction.Amount;
 
-                customer.Balance -= Math.Abs(transaction.Amount);
                 _context.Transactions.Add(transaction);
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");

@@ -14,6 +14,9 @@ namespace FakeNetBank.Models
         [DataType(DataType.Currency)]
         public decimal Amount { get; set; }
 
+        [DataType(DataType.DateTime)]
+        public DateTime? CreatedOn { get; set; }
+
         [Required]
         public int customerId { get; set; }
 

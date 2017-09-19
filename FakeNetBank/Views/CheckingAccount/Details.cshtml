@@ -68,11 +68,27 @@
 
 @section scripts{
     <script>
+
+
         $(document).ready(function () {
-            var table = $('#transactions').DataTable({
+            table = $('#transactions').DataTable({
+                "scrollY": "200px",
+                "scollCollapse": true,
+                "bFilter": false,
+                paging: false,
                 ajax: {
-                    url: "/api/"
-                }
+                    url: "/api/transactions/" + @Model.Id,
+                    dataSrc: "",
+                    
+                },
+                columns: [
+                    {
+                        data: "Amount",
+                        render: function (data, type, transaction){
+                            return transaction < 0 ? "<span class='text-danger'>- $" + Math.abs(transaction) + "</span>" : "<span class='text-success'>+ $" + transaction + "</span>";
+                        }
+                    }
+                ]
             });
         });
     </script>    
